@@ -2,14 +2,18 @@ import { StyleSheet, TextInput, View, Pressable } from 'react-native'
 import { AntDesign, MaterialIcons } from '@expo/vector-icons';
 import { colors } from '../Global/colors';
 
-const Search = () => {
+
+const Search = ({textSearch,setTextSearch}) => {
   return (
     <View style={styles.container}>
-      <TextInput style={styles.input} placeholder='Buscar Producto' />
+      <TextInput style={styles.input} placeholder='Buscar Producto'
+        value={textSearch}
+        onChange={text => setTextSearch(text)}
+      />
       <Pressable>
         <AntDesign name='search1' color={'green'} size={30} />
       </Pressable>
-      <Pressable>
+      <Pressable onPress={() => setTextSearch("")}>
         <MaterialIcons name='cancel' color={'green'} size={30} />
       </Pressable>
     </View>

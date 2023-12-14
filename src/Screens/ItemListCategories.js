@@ -2,21 +2,22 @@ import { FlatList, Pressable, StyleSheet, Text, TextInput, View } from 'react-na
 import Header from '../Components/Header'
 import Search from '../Components/Search'
 import dataProductos from "../Data/products.json"
+import ProductItem from '../Components/ProductItem'
+import { useState } from 'react'
 
 
 const ItemListCategories = () => {
+  const [textSearch, setTextSearch] = useState("")
+
   return (
     <>
       <Header title='PRODUCTO' />
-      <Search />
+      <Search textSearch={textSearch} setTextSearch={setTextSearch} />
       <FlatList 
       data={dataProductos}
       keyExtractor={item=>item.id}
       renderItem={({item})=>(
-        <View>
-          <Text>{item.title}</Text>
-       
-        </View>
+        <ProductItem producto={item}/>
       )}
       />
     </>
