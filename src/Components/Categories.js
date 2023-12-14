@@ -1,13 +1,12 @@
 import { FlatList, StyleSheet, Text, View } from 'react-native'
 import categories from '../Data/categories.json'
+import CategoryItem from './CategoryItem'
 const Categories = () => {
   return (
-    <FlatList data={categories}
+    <FlatList style={styles.container} data={categories}
       keyExtractor={item => item}
       renderItem={({ item }) => (
-        <View>
-          <Text>{item}</Text>
-        </View>
+        <CategoryItem Categoria={item} />
       )}
     />
   )
@@ -15,4 +14,8 @@ const Categories = () => {
 
 export default Categories
 
-const styles = StyleSheet.create({})
+const styles = StyleSheet.create({
+  container:{
+    width:"80%"
+  }
+})

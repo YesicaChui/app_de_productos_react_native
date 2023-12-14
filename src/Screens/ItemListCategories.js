@@ -1,22 +1,30 @@
-import { StyleSheet, Text, View } from 'react-native'
+import { FlatList, Pressable, StyleSheet, Text, TextInput, View } from 'react-native'
+import Header from '../Components/Header'
+import Search from '../Components/Search'
+import dataProductos from "../Data/products.json"
 
 
 const ItemListCategories = () => {
   return (
-    <View style={styles.container}>
-      <Text>ItemListCategories</Text>
-    </View>
+    <>
+      <Header title='PRODUCTO' />
+      <Search />
+      <FlatList 
+      data={dataProductos}
+      keyExtractor={item=>item.id}
+      renderItem={({item})=>(
+        <View>
+          <Text>{item.title}</Text>
+       
+        </View>
+      )}
+      />
+    </>
   )
 }
 
 export default ItemListCategories
 
 const styles = StyleSheet.create({
-  container:{
-    width:"100%",
-    flex:1,
-    justifyContent:"center",
-    alignItems:"center"
-    
-  }
+
 })
