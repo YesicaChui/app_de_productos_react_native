@@ -1,11 +1,11 @@
 import { StyleSheet, Text, View } from 'react-native'
 import Header from '../Components/Header'
 import Categories from '../Components/Categories'
-const Home = () => {
+const Home = ({setCategoriaSeleccionada}) => {
   return (
     <>
       <Header title='Categorias'/>
-      <Categories/>
+      <Categories setCategoriaSeleccionada={setCategoriaSeleccionada} />
     </>
   )
 }
