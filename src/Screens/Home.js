@@ -4,7 +4,7 @@ import Categories from '../Components/Categories'
 const Home = ({setCategoriaSeleccionada}) => {
   return (
     <>
-      <Header title='Categorias'/>
+      <Header title='CATEGORIAS'/>
       <Categories setCategoriaSeleccionada={setCategoriaSeleccionada} />
     </>
   )

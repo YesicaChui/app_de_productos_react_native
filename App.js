@@ -8,12 +8,20 @@ import { useState } from 'react';
 
 export default function App() {
   const [categoriaSeleccionada, setCategoriaSeleccionada] = useState("")
+  const [productoSeleccionado, setProductoSeleccionado] = useState("")
 
   return (
     <View style={styles.container}>
-      {categoriaSeleccionada
-        ? <ItemListCategories />
-        : <Home setCategoriaSeleccionada={setCategoriaSeleccionada} />}
+      {productoSeleccionado
+        ? <ItemDetail productoSeleccionado={productoSeleccionado} 
+        setProductoSeleccionado={setProductoSeleccionado}
+        />
+        : categoriaSeleccionada
+          ? <ItemListCategories 
+          setProductoSeleccionado={setProductoSeleccionado}
+          setCategoriaSeleccionada={setCategoriaSeleccionada}
+          />
+          : <Home setCategoriaSeleccionada={setCategoriaSeleccionada} />}
       {/* <Home/> */}
       {/* <ItemListCategories/>  */}
       {/* <ItemDetail/> */}

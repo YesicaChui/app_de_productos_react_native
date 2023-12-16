@@ -6,23 +6,23 @@ import ProductItem from '../Components/ProductItem'
 import { useEffect, useState } from 'react'
 
 
-const ItemListCategories = () => {
+const ItemListCategories = ({ setProductoSeleccionado, setCategoriaSeleccionada }) => {
   const [keyword, setKeyword] = useState("")
-  const [products, setProducts]= useState([])
+  const [products, setProducts] = useState([])
   useEffect(() => {
-   const productosFiltrados = dataProductos.filter(elemento=>elemento.title.toLowerCase().includes(keyword.toLowerCase()))
-   setProducts(productosFiltrados)
+    const productosFiltrados = dataProductos.filter(elemento => elemento.title.toLowerCase().includes(keyword.toLowerCase()))
+    setProducts(productosFiltrados)
   }, [keyword])
 
   return (
     <>
-      <Header title='PRODUCTO' />
+      <Header title='PRODUCTOS' setCategoriaSeleccionada={setCategoriaSeleccionada} />
       <Search setKeyword={setKeyword} />
       <FlatList style={styles.container}
         data={products}
         keyExtractor={item => item.id}
         renderItem={({ item }) => (
-          <ProductItem producto={item} />
+          <ProductItem producto={item} setProductoSeleccionado={setProductoSeleccionado} />
         )}
       />
     </>
@@ -32,7 +32,7 @@ const ItemListCategories = () => {
 export default ItemListCategories
 
 const styles = StyleSheet.create({
-  container:{
+  container: {
     width: "80%"
   }
 })

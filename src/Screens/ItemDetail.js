@@ -1,11 +1,16 @@
 import { StyleSheet, Text, View } from 'react-native'
 import React from 'react'
+import Header from '../Components/Header'
 
-const ItemDetail = () => {
+const ItemDetail = ({productoSeleccionado,setProductoSeleccionado}) => {
   return (
-    <View style={styles.container}>
-      <Text>ItemDetail</Text>
-    </View>
+   <>
+   <Header title='DETALLE PRODUCTO'
+   setProductoSeleccionado={setProductoSeleccionado}
+   />
+   <Text>{productoSeleccionado.title}</Text>
+   <Text>{productoSeleccionado.description}</Text>
+   </>
   )
 }
 
