@@ -39,7 +39,9 @@ const styles = StyleSheet.create({
     paddingTop: 20
   },
   text: {
-    fontSize: 20
+    fontSize: 20,
+    fontFamily:"josefin",
+    fontWeight:"800"
   },
   textoVolver: {
     borderRadius: 10,

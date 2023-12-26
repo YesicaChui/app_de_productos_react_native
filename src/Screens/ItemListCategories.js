@@ -6,12 +6,19 @@ import ProductItem from '../Components/ProductItem'
 import { useEffect, useState } from 'react'
 
 
-const ItemListCategories = ({ setProductoSeleccionado, setCategoriaSeleccionada }) => {
+const ItemListCategories = ({ setProductoSeleccionado, setCategoriaSeleccionada, categoriaSeleccionada }) => {
   const [keyword, setKeyword] = useState("")
   const [products, setProducts] = useState([])
   useEffect(() => {
-    const productosFiltrados = dataProductos.filter(elemento => elemento.title.toLowerCase().includes(keyword.toLowerCase()))
-    setProducts(productosFiltrados)
+    if (categoriaSeleccionada) {
+      const categoriasFiltradas = dataProductos.filter(elemento=>elemento.category===categoriaSeleccionada)
+      const productosFiltrados = categoriasFiltradas.filter(elemento => elemento.title.toLowerCase().includes(keyword.toLowerCase()))
+      setProducts(productosFiltrados)
+    } else {
+      const productosFiltrados = dataProductos.filter(elemento => elemento.title.toLowerCase().includes(keyword.toLowerCase()))
+      setProducts(productosFiltrados)
+    }
+
   }, [keyword])
 
   return (

@@ -1,8 +1,15 @@
-import { Image, Pressable, StyleSheet, Text, View } from 'react-native'
+import { Image, Pressable, StyleSheet, Text, View, useWindowDimensions} from 'react-native'
 import { colors } from '../Global/colors'
+import { useEffect } from 'react'
 
 
 const ProductItem = ({ producto, setProductoSeleccionado }) => {
+const {width,height}= useWindowDimensions()
+useEffect(()=>{
+  console.log(width)
+  console.log(height)
+},[])
+
   return (
     <Pressable onPress={()=>setProductoSeleccionado(producto)}>
       <View style={styles.container}>
