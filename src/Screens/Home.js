@@ -4,7 +4,7 @@ import Categories from '../Components/Categories'
 const Home = ({navigation}) => {
   return (
     <>
-      <Header title='CATEGORIAS'/>
+     
       <Categories navigation={navigation} />
     </>
   )

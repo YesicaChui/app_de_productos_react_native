@@ -2,17 +2,14 @@ import { Platform, StyleSheet, Text, View } from 'react-native'
 import React from 'react'
 import Header from '../Components/Header'
 
-const ItemDetail = ({ productoSeleccionado, setProductoSeleccionado }) => {
-
+const ItemDetail = ({ route }) => {
+const {producto} = route.params
 
 
   return (
     <>
-      <Header title='DETALLE PRODUCTO'
-        setProductoSeleccionado={setProductoSeleccionado}
-      />
-      <Text>{productoSeleccionado.title}</Text>
-      <Text style={styles.segundoTexto}>{productoSeleccionado.description}</Text>
+      <Text>{producto.title}</Text>
+      <Text style={styles.segundoTexto}>{producto.description}</Text>
     </>
   )
 }

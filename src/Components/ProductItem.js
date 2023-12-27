@@ -3,7 +3,7 @@ import { colors } from '../Global/colors'
 import { useEffect } from 'react'
 
 
-const ProductItem = ({ producto, setProductoSeleccionado }) => {
+const ProductItem = ({ producto, navigation}) => {
 const {width,height}= useWindowDimensions()
 useEffect(()=>{
   console.log(width)
@@ -11,7 +11,7 @@ useEffect(()=>{
 },[])
 
   return (
-    <Pressable onPress={()=>setProductoSeleccionado(producto)}>
+    <Pressable onPress={()=>navigation.navigate("Detalle", {producto})}>
       <View style={styles.container}>
         <Image
           style={styles.imagen}
