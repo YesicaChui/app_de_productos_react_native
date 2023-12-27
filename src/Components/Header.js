@@ -12,15 +12,7 @@ const Header = ({ title = "producto", setCategoriaSeleccionada, setProductoSelec
   }
   return (
     <View style={styles.container}>
-      {
-        title === "CATEGORIAS"
-          ? ""
-          : <Pressable onPress={() => volver()}>
-            <Text style={styles.textoVolver}>volver</Text>
-          </Pressable>
-      }
       <Text style={styles.text}>{title}</Text>
-
     </View>
   )
 }
@@ -40,8 +32,9 @@ const styles = StyleSheet.create({
   },
   text: {
     fontSize: 20,
-    fontFamily:"josefin",
-    fontWeight:"800"
+    fontFamily: "josefin",
+    fontWeight: "800",
+    textTransform:'capitalize'
   },
   textoVolver: {
     borderRadius: 10,
